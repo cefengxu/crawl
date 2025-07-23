@@ -1,0 +1,90 @@
+service:
+  port: 3738
+  cpu_core_num: 4
+
+cent_svs:
+  host: "10.176.14.88"
+  port: 8888
+  
+consul:
+  host: "10.176.14.88"
+  port: 8500
+  interval: "60s"
+
+selenium:
+  browser_nums: 4
+
+plugins:
+  # search:
+  #   enabled: true
+  #   model_name: "bing"
+  #   subscription_key: "1e728c9543544239aac698f5ed995be5"
+  #   endpoint: "https://api.bing.microsoft.com/v7.0/search"
+  
+  fetcher:
+    enabled: true
+    selenium:
+      browser_num: 4
+      browser_path: "/opt/ungoogled-chromium/chrome"
+    playwright:
+      page_num: 5
+      browser_num: 2
+      process_num: 5
+      browser_path: "/opt/ungoogled-chromium/chrome"
+
+  search:
+    enabled: true
+    searchers:
+      bing:
+        subscription_key: "1e728c9543544239aac698f5ed995be5"
+        endpoint: "https://api.bing.microsoft.com/v7.0/search"
+      bocha:
+        subscription_key: "sk-009759360edf4e949b5779c793cba781"
+        endpoint: "https://api.bochaai.com/v1/web-search"
+      exa:
+        subscription_key: "0e254292-de2e-4811-8652-707d21f5fffe"
+        endpoint: "https://api.exa.ai/search"
+      tavily:
+        subscription_key: "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"
+        endpoint: "https://api.tavily.com/search"
+
+
+  weather:
+    enabled: true
+    subscription_key: "e42cd297db7adabc43a0f1e35115dd51"
+    endpoint_weather: "http://api.openweathermap.org/data/2.5/weather"
+    endpoint_forecast: "http://api.openweathermap.org/data/2.5/forecast"
+
+
+  # finance:
+  #   enabled: true
+  #   api_key: "ecfb463a70msh175ab07bbb4cbafp16e3a2jsnd5716045fc51"
+  #   api_host: "rapidapi.com"
+  #   endpoint: "https://rapidapi.com/apidojo/api/financial-modeling-prep"
+
+  # crawler:
+  #   enabled: true
+  #   subscription_key: "fc-8ae94df30db748b49e1adae0a89d64e6"
+  #   endpoint: ""
+
+# rapidapi_yh-finance:
+#   key: "ecfb463a70msh175ab07bbb4cbafp16e3a2jsnd5716045fc51"
+
+  
+mlm:
+  host: "http://127.0.0.1"
+  port: 8110
+  api: "/llm/v1/chat/completions"
+  #model: "Llama3.2-VL-11B"
+  model: "Qwen2.5-VL-7B"
+  api_key: "VPQr66zX6F88T0p8tqF0X146zN78dH4mMGScx8jSr6pN5MldPx1KrbrMBQrjGlz8F88XVB6ZPQ0AL2g7M786k8k6AvqtQ88MHmN7wrCn888dm6gsrX86CssvhB5N78Rr"
+  enable: True
+  max_image_tokens: 6192
+
+llm:
+  host: "http://10.176.14.223"
+  port: 9510
+  api: "/llm/v1/chat/completions"
+  model: "Llama3.3-70B"
+  api_key: "7jPvPlFvHK77RG5CLLGva2pF68Z9WB0Ah7gWg8mw2m76Kq4zbqdrw5rFsDxjFLD7KaB6mzzjv68wfax86gPnr1CPfWhD0FJ7Va2Xg5XmjHX6rVn6jSvW0br6gBhvW7kk"
+  enable: False
