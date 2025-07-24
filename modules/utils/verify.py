@@ -3,6 +3,7 @@ from .koba_logger import KobaLogger
 from ..utils.config import Config
 
 def verify(key,service_type = "search"):
+    print(f"🛡️ verify key: {key} service_type: {service_type}")
     url = f"http://{Config.app_config.cent_svs.host}:{Config.app_config.cent_svs.port}/api/v1/api-keys/verify/{key}?app_id=app-c"
     data = {
    
